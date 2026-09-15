@@ -27,14 +27,6 @@
       { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
       { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
     ];
-
-    const people = [
-      'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
-      'Belloc, Hilaire', 'Begin, Menachem', 'Bellow, Saul', 'Benchley, Robert', 'Blair, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Berlin, Irving',
-      'Benn, Tony', 'Benson, Leana', 'Bent, Silas', 'Berle, Milton', 'Berry, Halle', 'Biko, Steve', 'Beck, Glenn', 'Bergman, Ingmar', 'Black, Elk', 'Berio, Luciano',
-      'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
-      'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
-    ];
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
@@ -93,30 +85,172 @@
             // console.log(getTotalYears(inventors));
 
     // 5. Sort the inventors by years lived
-          function sortByAge(arr){
-            let byAge = arr.sort(function(a,b){
-              return (a.passed - a.year) - (b.passed - b.year)
-            });
+          // function sortByAge(arr){
+          //   let byAge = arr.sort(function(a,b){
+          //     return (a.passed - a.year) - (b.passed - b.year)
+          //   });
 
-            let byNames = byAge.map(byAge => {
-              return byAge.first;
-            })
-            return byNames;
-          }
+          //   let byNames = byAge.map(byAge => {
+          //     return byAge.first;
+          //   })
+          //   return byNames;
+          // }
 
-          console.log(sortByAge(inventors));
+          // console.log(sortByAge(inventors));
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+          // const parisBoulevards = [
+          //     "Adolphe-Pinard",
+          //     "Algérie",
+          //     "Anatole-France",
+          //     "Arago",
+          //     "Auguste-Blanqui",
+          //     "Aurelle-de-Paladines",
+          //     "Auteuil",
+          //     "Barbès",
+          //     "Bastille",
+          //     "Batignolles",
+          //     "Beauséjour",
+          //     "Belleville",
+          //     "Bercy",
+          //     "Berthier",
+          //     "Bessières",
+          //     "Bois-le-Prêtre",
+          //     "Bourdon",
+          //     "Amiral-Bruix",
+          //     "Brune",
+          //     "Carnot",
+          //     "Chapelle",
+          //     "Charonne",
+          //     "Clichy",
+          //     "Commanderie",
+          //     "Courcelles",
+          //     "Davout",
+          //     "Delessert",
+          //     "Denain",
+          //     "Diderot",
+          //     "Dixmude",
+          //     "Douaumont",
+          //     "Edgar-Quinet",
+          //     "Émile-Augier",
+          //     "Exelmans",
+          //     "Flandrin",
+          //     "Fort-de-Vaux",
+          //     "Frères-Voisin",
+          //     "Gallieni",
+          //     "Garibaldi",
+          //     "Général-de-Gaulle",
+          //     "Gouvion-Saint-Cyr",
+          //     "Grenelle",
+          //     "Guyane",
+          //     "Haussmann",
+          //     "Henri-IV",
+          //     "Hippolyte-Marquès",
+          //     "Hôpital",
+          //     "Indochine",
+          //     "Invalides",
+          //     "Jourdan",
+          //     "Jules-Ferry",
+          //     "Jules-Sandeau",
+          //     "Kellermann",
+          //     "Lannes",
+          //     "La Tour-Maubourg",
+          //     "Lefebvre",
+          //     "Macdonald",
+          //     "Magenta",
+          //     "Malesherbes",
+          //     "Marbeau",
+          //     "Marguerite-de-Rochechouart",
+          //     "Masséna",
+          //     "Ménilmontant",
+          //     "Montmorency",
+          //     "Montparnasse",
+          //     "Morland",
+          //     "Mortier",
+          //     "Murat",
+          //     "Ney",
+          //     "Ornano",
+          //     "Palais",
+          //     "Pasteur",
+          //     "Pereire",
+          //     "Pershing",
+          //     "Picpus",
+          //     "Poniatowski",
+          //     "Port-Royal",
+          //     "Raspail",
+          //     "Reims",
+          //     "Reuilly",
+          //     "Richard-Lenoir",
+          //     "Romain-Rolland",
+          //     "Saint-Germain",
+          //     "Saint-Jacques",
+          //     "Saint-Marcel",
+          //     "Saint-Michel",
+          //     "Sébastopol",
+          //     "Sérurier",
+          //     "Général-d'Armée-Jean-Simon",
+          //     "Somme",
+          //     "Soult",
+          //     "Strasbourg",
+          //     "Suchet",
+          //     "Thierry-de-Martel",
+          //     "Général-Martial-Valin",
+          //     "Vaugirard",
+          //     "Victor",
+          //     "Villette",
+          //     "Vincent-Auriol",
+          //     "Voltaire",
+          //     "Yser"
+          //   ];
+          // function getBoulevardsDE(arr){
+          //   let hasDE = arr.filter(function(arr) {
+          //     return arr.includes("de" || "De" || "DE" || "dE");
+          //   })
 
+          //   return hasDE;
+          // }
+
+          // console.log(getBoulevardsDE(parisBoulevards));
+
+const people = [
+      'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
+      'Belloc, Hilaire', 'Begin, Menachem', 'Bellow, Saul', 'Benchley, Robert', 'Blair, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Berlin, Irving',
+      'Benn, Tony', 'Benson, Leana', 'Bent, Silas', 'Berle, Milton', 'Berry, Halle', 'Biko, Steve', 'Beck, Glenn', 'Bergman, Ingmar', 'Black, Elk', 'Berio, Luciano',
+      'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
+      'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
+    ];
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+          // function sortByLastName(arr){
+          //   let splitNames = arr.map(arr => {
+          //     let lastNames = arr.split(", ");
+          //     return lastNames[0];
+          //   });
+
+          //   return splitNames;
+          // }
+          // console.log(sortByLastName(people));
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    function countInstances(arr){
+      let counter = arr.reduce(function(count, item) {
+        if(count[item]){
+          count[item]++;
+        }
+        else{
+          count[item] = 1;
+        }
+        return count;
+      },{});
+      return counter;
+    }
+
+    console.log(countInstances(data));
   </script>
 </body>
 </html>
