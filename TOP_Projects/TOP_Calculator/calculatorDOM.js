@@ -11,6 +11,7 @@ const decimalBtn = document.querySelector(".dec-btn");
 let x = '';
 let operator = '';
 let y = '';
+let ans = 0;
 
 numBtn.forEach(element => {
     element.addEventListener("click",() => {
@@ -22,17 +23,18 @@ numBtn.forEach(element => {
             displayedNum.textContent === '/' 
         ){
             displayedNum.textContent = element.textContent;
+
             if(x === ''){
                 x = element.textContent;
             }
             else{
-                x += element.textContent;
+                y += element.textContent;
             }
         }
         else{
             displayedNum.textContent += element.textContent;
-            if(y === ''){
-                y = element.textContent;
+            if(x === ''){
+                x = element.textContent;
             }
             else{
                 y += element.textContent;
@@ -48,7 +50,20 @@ allClearBtn.addEventListener("click",() => {
 operatorBtn.forEach(element => {
     element.addEventListener("click", () => {
         displayedNum.textContent = element.textContent;
-        operator = element.textContent;
+        if(operator === ''){
+            operator = element.textContent;
+            console.log('x: ', x);
+            console.log('y: ', y);
+            console.log('op: ', operator);
+        }
+        else {
+            x = ans;
+            y = ''
+            operator = element.textContent;
+            console.log('x: ', x);
+            console.log('y: ', y);
+            console.log('op: ', operator);
+        }
     });
 });
 
@@ -60,10 +75,18 @@ equalBtn.addEventListener('click', () => {
     const firstNum = Number(x);
     const secondNum = Number(y);
 
-    let ans = operation(firstNum,operator,secondNum);
+    ans = operation(firstNum,operator,secondNum);
 
     displayedNum.textContent = ans;
-    x = ans;
-    y = '';
-    operator = '';
+
+    console.log('x: ', x);
+    console.log('y: ', y);
+    console.log('op: ', operator);
+
+    // x = '';
+    // y = ''
+    // operator = '';
+    console.log('x: ', x);
+    console.log('y: ', y);
+    console.log('op: ', operator);
 });
