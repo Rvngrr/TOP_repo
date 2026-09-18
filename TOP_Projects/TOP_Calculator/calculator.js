@@ -14,10 +14,10 @@ function Division(x,y){
     return x/y;
 }
 
-function operation(x,operation,y){
+export function operation(x,operation,y){
 
-    if(typeof x !== "number" && typeof x !== "number"){
-        return "Error, Please input a letter!"
+    if (typeof x !== "number" || typeof y !== "number") {
+        return "Error, Please input a number!"
     }
 
     switch(operation){
@@ -27,7 +27,7 @@ function operation(x,operation,y){
         case '-':
             return subtraction(x,y);
             
-        case '*':
+        case 'x':
             return multiplication(x,y);
             
         case '/':

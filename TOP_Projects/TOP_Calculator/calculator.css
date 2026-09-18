@@ -28,6 +28,15 @@ body{
     grid-template-columns: repeat(4, 1fr);
 }
 
+.zeroth-row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.AC-btn, .bck-btn{
+    aspect-ratio: 2/1;
+}
+
 .operators{
     background-color: #F38F31;
     color: white;
