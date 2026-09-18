@@ -26,18 +26,24 @@ numBtn.forEach(element => {
 
             if(x === ''){
                 x = element.textContent;
+                displayedNum.textContent = x;
             }
             else{
                 y += element.textContent;
+                displayedNum.textContent = y;
+
             }
         }
         else{
             displayedNum.textContent += element.textContent;
             if(x === ''){
                 x = element.textContent;
+                displayedNum.textContent = x;
+
             }
             else{
                 y += element.textContent;
+                displayedNum.textContent = y;
             }
         }
     });
@@ -45,6 +51,10 @@ numBtn.forEach(element => {
 
 allClearBtn.addEventListener("click",() => {
     displayedNum.textContent = 0;
+    x = '';
+    y = '';
+    operator = '';
+    ans = 0;
 });
 
 operatorBtn.forEach(element => {
@@ -57,8 +67,9 @@ operatorBtn.forEach(element => {
             console.log('op: ', operator);
         }
         else {
+            equalBtn.click();
             x = ans;
-            y = ''
+            y = '';
             operator = element.textContent;
             console.log('x: ', x);
             console.log('y: ', y);
@@ -86,7 +97,7 @@ equalBtn.addEventListener('click', () => {
     // x = '';
     // y = ''
     // operator = '';
-    console.log('x: ', x);
-    console.log('y: ', y);
-    console.log('op: ', operator);
+    // console.log('x: ', x);
+    // console.log('y: ', y);
+    // console.log('op: ', operator);
 });
