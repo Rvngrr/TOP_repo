@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#display-container{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: #808080;
+    padding: 0px 10px 0px 10px;
+    height: 100px;
+    border-bottom: 2px solid black;
+}
+
+#card{
+    border: 2px solid black
+}
+
+.btn-row{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.operators{
+    background-color: #F38F31;
+    color: white;
+}
+
+
+
+button{
+    font-size: 36px;
+    aspect-ratio: 1/1;
+    height: 125px;
+}
+
+h1{
+    font-size: 56px;
+}
