@@ -16,30 +16,24 @@ let ans = 0;
 numBtn.forEach(element => {
     element.addEventListener("click",() => {
         //todo if(/^0-9$/.test(element.textContent)){
-        if( displayedNum.textContent === '0' ||
-            displayedNum.textContent === '+' ||
-            displayedNum.textContent === '-' ||
-            displayedNum.textContent === 'x' ||
-            displayedNum.textContent === '/' 
-        ){
-            displayedNum.textContent = element.textContent;
-
+        if( operator === ''){
+            // first num
             if(x === ''){
                 x = element.textContent;
                 displayedNum.textContent = x;
             }
             else{
-                y += element.textContent;
-                displayedNum.textContent = y;
+                x += element.textContent;
+                displayedNum.textContent = x;
+                
 
             }
         }
         else{
-            displayedNum.textContent += element.textContent;
-            if(x === ''){
-                x = element.textContent;
-                displayedNum.textContent = x;
-
+            //second num
+            if(y === ''){
+                y = element.textContent;
+                displayedNum.textContent = y;
             }
             else{
                 y += element.textContent;
