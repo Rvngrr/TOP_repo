@@ -12,6 +12,7 @@ let x = '';
 let operator = '';
 let y = '';
 let ans = 0;
+let decimal = false;
 
 numBtn.forEach(element => {
     element.addEventListener("click",() => {
@@ -23,9 +24,10 @@ numBtn.forEach(element => {
                 displayedNum.textContent = x;
             }
             else{
+                console.log(x);
                 x += element.textContent;
                 displayedNum.textContent = x;
-                
+                console.log(x);
 
             }
         }
@@ -49,6 +51,7 @@ allClearBtn.addEventListener("click",() => {
     y = '';
     operator = '';
     ans = 0;
+    decimal = false;
 });
 
 operatorBtn.forEach(element => {
@@ -56,6 +59,8 @@ operatorBtn.forEach(element => {
         displayedNum.textContent = element.textContent;
         if(operator === ''){
             operator = element.textContent;
+            decimal = false;
+
             console.log('x: ', x);
             console.log('y: ', y);
             console.log('op: ', operator);
@@ -65,6 +70,7 @@ operatorBtn.forEach(element => {
             x = ans;
             y = '';
             operator = element.textContent;
+            decimal = false;
             console.log('x: ', x);
             console.log('y: ', y);
             console.log('op: ', operator);
@@ -72,8 +78,25 @@ operatorBtn.forEach(element => {
     });
 });
 
-decimalBtn.addEventListener("click", () => {
-    displayedNum.textContent += decimalBtn.textContent;
+decimalBtn.addEventListener("click", () => {    
+    if(!decimal){
+        decimal = true;
+        if(operator === ''){
+            displayedNum.textContent += '.';
+            x += '.';
+        }
+        else {
+            console.log(y);
+            if(y === ''){
+                displayedNum.textContent = '0.';
+                y += "0.";
+            }
+            else{
+                displayedNum.textContent += '.';
+                y += '.';
+            }
+        }
+    }
 });
 
 equalBtn.addEventListener('click', () => {
