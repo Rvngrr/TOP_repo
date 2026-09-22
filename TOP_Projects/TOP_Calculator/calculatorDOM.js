@@ -117,7 +117,6 @@ equalBtn.addEventListener('click', () => {
     decimal = false;
 });
 
-
 document.addEventListener("keydown", (event) => {
     const key = event.key;
     const operatorKey = ["+", "-", "*", "/"];
