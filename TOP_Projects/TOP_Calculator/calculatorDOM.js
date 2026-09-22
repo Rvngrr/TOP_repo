@@ -116,3 +116,34 @@ equalBtn.addEventListener('click', () => {
     operator = '';
     decimal = false;
 });
+
+
+document.addEventListener("keydown", (event) => {
+    const key = event.key;
+    const operatorKey = ["+", "-", "*", "/"];
+    
+    if (/[0-9]/.test(key)) {
+         // Number keys
+        numBtn.forEach(button => {
+            if (button.textContent === event.key) {
+                button.click();
+            }
+        });
+    }
+
+    if (key === ".") {
+        decimalBtn.click();
+    }
+
+    if (key === "Backspace") {
+        backspaceBtn.click();
+    }
+
+    if (key === "Enter") {
+        equalBtn.click();
+    }
+
+    if (key === "Escape") {
+        allClearBtn.click();
+    }
+});
