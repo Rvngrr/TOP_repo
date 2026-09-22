@@ -110,7 +110,7 @@ equalBtn.addEventListener('click', () => {
 
     displayedNum.textContent = ans;
 
-      // Make the answer the new number we're editing
+    // Make the answer the new number we're editing
     x = String(ans);
     y = '';
     operator = '';
@@ -121,11 +121,27 @@ equalBtn.addEventListener('click', () => {
 document.addEventListener("keydown", (event) => {
     const key = event.key;
     const operatorKey = ["+", "-", "*", "/"];
-    
+
     if (/[0-9]/.test(key)) {
          // Number keys
         numBtn.forEach(button => {
             if (button.textContent === event.key) {
+                button.click();
+            }
+        });
+    }
+
+    // Operators
+    operatorBtn.forEach(button => {
+        if (button.textContent === event.key) {
+            button.click();
+        }
+    });
+
+    // Keyboard * → calculator x
+    if (event.key === "*") {
+        operatorBtn.forEach(button => {
+            if (button.textContent === "x") {
                 button.click();
             }
         });
