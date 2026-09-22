@@ -70,6 +70,7 @@ operatorBtn.forEach(element => {
             x = ans;
             y = '';
             operator = element.textContent;
+            displayedNum.textContent = operator;
             decimal = false;
             console.log('x: ', x);
             console.log('y: ', y);
@@ -107,6 +108,12 @@ equalBtn.addEventListener('click', () => {
 
     displayedNum.textContent = ans;
 
+      // Make the answer the new number we're editing
+    x = String(ans);
+    y = '';
+    operator = '';
+    decimal = false;
+    
     console.log('x: ', x);
     console.log('y: ', y);
     console.log('op: ', operator);
