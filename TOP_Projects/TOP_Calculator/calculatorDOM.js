@@ -19,20 +19,19 @@ numBtn.forEach(element => {
         //todo if(/^0-9$/.test(element.textContent)){
         if( operator === ''){
             // first num
+            if (x.length > 16){return}
             if(x === ''){
                 x = element.textContent;
                 displayedNum.textContent = x;
             }
             else{
-                console.log(x);
                 x += element.textContent;
                 displayedNum.textContent = x;
-                console.log(x);
-
             }
         }
         else{
             //second num
+            if (y.length > 16){return}
             if(y === ''){
                 y = element.textContent;
                 displayedNum.textContent = y;
@@ -54,16 +53,23 @@ allClearBtn.addEventListener("click",() => {
     decimal = false;
 });
 
+backspaceBtn.addEventListener("click", () => {
+    if (operator === '') {
+        x = x.slice(0, -1);
+        displayedNum.textContent = x || 0;
+    }
+    else {
+        y = y.slice(0, -1);
+        displayedNum.textContent = y || 0;
+    }
+});
+
 operatorBtn.forEach(element => {
     element.addEventListener("click", () => {
         displayedNum.textContent = element.textContent;
         if(operator === ''){
             operator = element.textContent;
             decimal = false;
-
-            console.log('x: ', x);
-            console.log('y: ', y);
-            console.log('op: ', operator);
         }
         else {
             equalBtn.click();
@@ -72,9 +78,6 @@ operatorBtn.forEach(element => {
             operator = element.textContent;
             displayedNum.textContent = operator;
             decimal = false;
-            console.log('x: ', x);
-            console.log('y: ', y);
-            console.log('op: ', operator);
         }
     });
 });
@@ -87,7 +90,6 @@ decimalBtn.addEventListener("click", () => {
             x += '.';
         }
         else {
-            console.log(y);
             if(y === ''){
                 displayedNum.textContent = '0.';
                 y += "0.";
@@ -113,15 +115,4 @@ equalBtn.addEventListener('click', () => {
     y = '';
     operator = '';
     decimal = false;
-    
-    console.log('x: ', x);
-    console.log('y: ', y);
-    console.log('op: ', operator);
-
-    // x = '';
-    // y = ''
-    // operator = '';
-    // console.log('x: ', x);
-    // console.log('y: ', y);
-    // console.log('op: ', operator);
 });
